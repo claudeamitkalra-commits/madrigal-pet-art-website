@@ -598,29 +598,20 @@
             display: none !important;
             max-width: 1200px;
             margin: 0 auto;
-            column-count: 3;
-            column-gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
 
         .gallery-category.active {
-            display: block !important;
-        }
-
-        .gallery-category .gallery-item {
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
+            display: grid !important;
         }
 
         .gallery-grid {
             max-width: 1200px;
             margin: 0 auto;
-            column-count: 3;
-            column-gap: 1.5rem;
-        }
-
-        .gallery-grid .gallery-item {
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
 
         .gallery-divider {
@@ -631,18 +622,24 @@
         }
 
         .gallery-item {
+            aspect-ratio: 3/4;
             background: white;
             border: 1px solid rgba(183, 110, 121, 0.15);
             overflow: hidden;
             cursor: pointer;
             transition: all 0.4s ease;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .gallery-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
+            object-fit: cover;
+            object-position: center center;
         }
 
         .gallery-item:hover {
@@ -1151,8 +1148,8 @@
 
             .about-content { grid-template-columns: 1fr; gap: 2rem; }
             .services-grid { grid-template-columns: 1fr; }
-            .gallery-grid { column-count: 2; }
-            .gallery-category { column-count: 2; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-category { grid-template-columns: repeat(2, 1fr); }
             .process-steps { grid-template-columns: repeat(2, 1fr); }
             .step::after { display: none; }
             .contact-methods { grid-template-columns: 1fr; }
@@ -1162,8 +1159,8 @@
 
         @media (max-width: 480px) {
             .hero h1 { font-size: 2.2rem; }
-            .gallery-grid { column-count: 1; }
-            .gallery-category { column-count: 1; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-category { grid-template-columns: 1fr; }
             .process-steps { grid-template-columns: 1fr; }
         }
 
@@ -1316,38 +1313,38 @@
         </div>
 
         <!-- Perros & Gatos -->
-        <div class="gallery-category active fade-in" id="dogs-cats" style="display:block;">
-            <div class="gallery-item"><img src="img/Pinturas%20acrilico/A.jpeg" alt="Retrato hiperrealista de perro en acrilico sobre lienzo - Madrigal Pet Art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Pinturas%20acrilico/B.jpg" alt="Retrato personalizado de perro pintado a mano en acrilico - Madrigal Pet Art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Pinturas%20acrilico/C.jpg" alt="Pintura realista de mascota en acrilico sobre lienzo - Madrigal Pet Art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Pinturas%20acrilico/D.jpg" alt="Retrato de mascota hiperrealista pintado por veterinaria artista" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Pinturas%20acrilico/E.jpg" alt="Custom pet portrait acrylic on canvas - Madrigal Pet Art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Pinturas%20acrilico/IMG_2848.jpeg" alt="Retrato de perro personalizado en acrilico - comision de arte de mascotas" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Pinturas%20acrilico/J.jpg" alt="Pintura hiperrealista de gato en acrilico sobre lienzo - Madrigal Pet Art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Pinturas%20acrilico/L.jpg" alt="Pet portrait commission - realistic dog painting acrylic on canvas" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+        <div class="gallery-category active fade-in" id="dogs-cats" style="display:grid;">
+            <div class="gallery-item"><img src="img/Pinturas%20acrilico/A.jpeg" alt="Retrato hiperrealista de perro en acrilico sobre lienzo - Madrigal Pet Art"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Pinturas%20acrilico/B.jpg" alt="Retrato personalizado de perro pintado a mano en acrilico - Madrigal Pet Art"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Pinturas%20acrilico/C.jpg" alt="Pintura realista de mascota en acrilico sobre lienzo - Madrigal Pet Art"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Pinturas%20acrilico/D.jpg" alt="Retrato de mascota hiperrealista pintado por veterinaria artista"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Pinturas%20acrilico/E.jpg" alt="Custom pet portrait acrylic on canvas - Madrigal Pet Art"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Pinturas%20acrilico/IMG_2848.jpeg" alt="Retrato de perro personalizado en acrilico - comision de arte de mascotas"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Pinturas%20acrilico/J.jpg" alt="Pintura hiperrealista de gato en acrilico sobre lienzo - Madrigal Pet Art"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Pinturas%20acrilico/L.jpg" alt="Pet portrait commission - realistic dog painting acrylic on canvas"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
         </div>
 
         <!-- Otras Especies -->
         <div class="gallery-category fade-in" id="other-species">
-            <div class="gallery-item"><img src="img/Otros/F.png" alt="Retrato hiperrealista de conejo en acrilico - animal portrait art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Conejo</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Otros/G.jpg" alt="Pintura realista de animal en acrilico sobre lienzo - Madrigal Pet Art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Otros/H.jpg" alt="Retrato hiperrealista de animal pintado a mano" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Otros/I.jpg" alt="Pintura de animal por veterinaria artista - custom animal portrait" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Otros/IMG_20191215_123225.jpg" alt="Pintura de abubilla en acuarela sobre lienzo - bird watercolor art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Abubilla</h4><span>Acuarela sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Otros/IMG_20220509_191416.jpg" alt="Retrato realista de animal en acrilico - Madrigal Pet Art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Otros/K.jpg" alt="Pintura hiperrealista de pato en acrilico - duck portrait painting" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Otros/M.png" alt="Pintura de elefantes en acrilico con hoja de oro - elephant painting" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Elefantes</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Otros/N.png" alt="Retrato hiperrealista de caballo en acrilico - horse portrait art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Caballo</h4><span>Acrílico sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Otros/RANA.png" alt="Rana arboricola en lapices de colores sobre papel - frog colored pencil art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Rana</h4><span>Lapices de colores sobre papel</span></div></div></div>
-            <div class="gallery-item"><img src="img/Otros/RANA%202.png" alt="Rana de ojos rojos en oleo sobre lienzo - red-eyed tree frog oil painting" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Rana</h4><span>Oleo sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Otros/VACA.png" alt="Retrato de vaca en acrilico sobre lienzo - cow portrait painting" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Vaca</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/F.png" alt="Retrato hiperrealista de conejo en acrilico - animal portrait art"><div class="overlay"><div class="overlay-text"><h4>Conejo</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/G.jpg" alt="Pintura realista de animal en acrilico sobre lienzo - Madrigal Pet Art"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/H.jpg" alt="Retrato hiperrealista de animal pintado a mano"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/I.jpg" alt="Pintura de animal por veterinaria artista - custom animal portrait"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/IMG_20191215_123225.jpg" alt="Pintura de abubilla en acuarela sobre lienzo - bird watercolor art"><div class="overlay"><div class="overlay-text"><h4>Abubilla</h4><span>Acuarela sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/IMG_20220509_191416.jpg" alt="Retrato realista de animal en acrilico - Madrigal Pet Art"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/K.jpg" alt="Pintura hiperrealista de pato en acrilico - duck portrait painting"><div class="overlay"><div class="overlay-text"><h4>Retrato</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/M.png" alt="Pintura de elefantes en acrilico con hoja de oro - elephant painting"><div class="overlay"><div class="overlay-text"><h4>Elefantes</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/N.png" alt="Retrato hiperrealista de caballo en acrilico - horse portrait art"><div class="overlay"><div class="overlay-text"><h4>Caballo</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/RANA.png" alt="Rana arboricola en lapices de colores sobre papel - frog colored pencil art"><div class="overlay"><div class="overlay-text"><h4>Rana</h4><span>Lapices de colores sobre papel</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/RANA%202.png" alt="Rana de ojos rojos en oleo sobre lienzo - red-eyed tree frog oil painting"><div class="overlay"><div class="overlay-text"><h4>Rana</h4><span>Oleo sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Otros/VACA.png" alt="Retrato de vaca en acrilico sobre lienzo - cow portrait painting"><div class="overlay"><div class="overlay-text"><h4>Vaca</h4><span>Acrílico sobre lienzo</span></div></div></div>
         </div>
 
         <!-- Flores & Naturaleza -->
         <div class="gallery-category fade-in" id="flowers">
-            <div class="gallery-item"><img src="img/Naturaleza/duraznos.png" alt="Duraznos hiperrealistas en lapices de colores - botanical colored pencil art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Duraznos</h4><span>Lapices de colores sobre papel</span></div></div></div>
-            <div class="gallery-item"><img src="img/Naturaleza/1010383_10151620660414209_1781500410_n.jpg" alt="Pintura de flor en oleo sobre lienzo - flower oil painting" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Flor</h4><span>Oleo sobre lienzo</span></div></div></div>
-            <div class="gallery-item"><img src="img/Naturaleza/IMG_20220402_130340.jpg" alt="Pintura de naturaleza en acrilico sobre lienzo - nature painting" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Naturaleza</h4><span>Acrílico sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Naturaleza/duraznos.png" alt="Duraznos hiperrealistas en lapices de colores - botanical colored pencil art"><div class="overlay"><div class="overlay-text"><h4>Duraznos</h4><span>Lapices de colores sobre papel</span></div></div></div>
+            <div class="gallery-item"><img src="img/Naturaleza/1010383_10151620660414209_1781500410_n.jpg" alt="Pintura de flor en oleo sobre lienzo - flower oil painting"><div class="overlay"><div class="overlay-text"><h4>Flor</h4><span>Oleo sobre lienzo</span></div></div></div>
+            <div class="gallery-item"><img src="img/Naturaleza/IMG_20220402_130340.jpg" alt="Pintura de naturaleza en acrilico sobre lienzo - nature painting"><div class="overlay"><div class="overlay-text"><h4>Naturaleza</h4><span>Acrílico sobre lienzo</span></div></div></div>
         </div>
     </section>
 
@@ -1359,12 +1356,12 @@
             <div class="divider"></div>
         </div>
         <div class="gallery-grid fade-in">
-            <div class="gallery-item"><img src="img/Esculturas/E2.1.jpg" alt="Escultura personalizada de mascota en arcilla polimerica - custom pet sculpture" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
-            <div class="gallery-item"><img src="img/Esculturas/E2.png" alt="Figura de mascota en arcilla polimerica pintada a mano - polymer clay pet figurine" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
-            <div class="gallery-item"><img src="img/Esculturas/E3.png" alt="Escultura hiperrealista de mascota - polymer clay sculpture handmade" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
-            <div class="gallery-item"><img src="img/Esculturas/E4.png" alt="Cake topper de mascota para matrimonio en arcilla polimerica - wedding pet cake topper" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
-            <div class="gallery-item"><img src="img/Esculturas/E5.JPG" alt="Figura decorativa de mascota personalizada - custom pet memorial figurine" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
-            <div class="gallery-item"><img src="img/Esculturas/E5.1.JPG" alt="Escultura de mascota en arcilla polimerica - Madrigal Pet Art" loading="lazy"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
+            <div class="gallery-item"><img src="img/Esculturas/E2.1.jpg" alt="Escultura personalizada de mascota en arcilla polimerica - custom pet sculpture"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
+            <div class="gallery-item"><img src="img/Esculturas/E2.png" alt="Figura de mascota en arcilla polimerica pintada a mano - polymer clay pet figurine"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
+            <div class="gallery-item"><img src="img/Esculturas/E3.png" alt="Escultura hiperrealista de mascota - polymer clay sculpture handmade"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
+            <div class="gallery-item"><img src="img/Esculturas/E4.png" alt="Cake topper de mascota para matrimonio en arcilla polimerica - wedding pet cake topper"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
+            <div class="gallery-item"><img src="img/Esculturas/E5.JPG" alt="Figura decorativa de mascota personalizada - custom pet memorial figurine"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
+            <div class="gallery-item"><img src="img/Esculturas/E5.1.JPG" alt="Escultura de mascota en arcilla polimerica - Madrigal Pet Art"><div class="overlay"><div class="overlay-text"><h4>Escultura</h4><span>Arcilla polimérica</span></div></div></div>
         </div>
     </section>
 
